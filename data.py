@@ -37,4 +37,4 @@ class FemDataset(Dataset):
     def __len__(self):
         return(len(self.X))
     def __getitem__(self, i):
-        return self.X[i], self.Y[i]
+        return self.X[i], self.y[i]
