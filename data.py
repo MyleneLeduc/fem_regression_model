@@ -31,10 +31,10 @@ class FemDataset(Dataset):
         self.X = self.df[columnsX]
         self.y = self.df[columnsY]
         self.X = preprocessing.scale(self.X)
-        self.y = preprocessing.scale(self.y)
+        # self.y = preprocessing.scale(self.y)
         self.X = torch.FloatTensor(self.X)
-        self.y = torch.FloatTensor(self.y)
+        self.y = torch.FloatTensor(self.y.to_numpy())
     def __len__(self):
         return(len(self.X))
     def __getitem__(self, i):
-        return self.X[i], self.Y[i]
+        return self.X[i], self.y[i]
